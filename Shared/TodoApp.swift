@@ -2,7 +2,7 @@
 //  TodoApp.swift
 //  Shared
 //
-//  Created by Carolina Minami Oguchi on 3/22/21.
+//  Created by Yusuke Kawanabe on 3/22/21.
 //
 
 import SwiftUI

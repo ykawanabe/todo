@@ -2,7 +2,7 @@
 //  Tests_macOS.swift
 //  Tests macOS
 //
-//  Created by Carolina Minami Oguchi on 3/22/21.
+//  Created by Yusuke Kawanabe on 3/22/21.
 //
 
 import XCTest

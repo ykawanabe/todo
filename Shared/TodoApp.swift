@@ -11,8 +11,8 @@ import SwiftUI
 struct TodoApp: App {
     var body: some Scene {
         WindowGroup {
-            let viewModel = TodoViewListViewModel.fixer()
-            TodoViewListView(viewModel: viewModel)
+//            let viewModel = TodoViewListViewModel.fixer()
+            TaskListView()
         }
     }
 }

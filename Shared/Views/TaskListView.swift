@@ -16,7 +16,12 @@ struct TaskListView: View {
             VStack(alignment: .leading) {
                 List {
                     ForEach(taskListViewModel.taskRowViewModels) { taskRowViewModel in
-                        TaskRowView(taskRowViewModel: taskRowViewModel)
+                        TaskRowView(taskRowViewModel: taskRowViewModel) {
+                            result in
+                            if case .success(let task) = result {
+                                self.taskListViewModel.updateTask(task: task)
+                            }
+                        }
                     }
                     .onDelete { indexSet in
                         self.taskListViewModel.removeTasks(atOffsets: indexSet)

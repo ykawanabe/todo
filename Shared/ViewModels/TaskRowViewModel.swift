@@ -17,7 +17,7 @@ class TaskRowViewModel: ObservableObject, Identifiable {
     private var cancellable = Set<AnyCancellable>()
     
     static func newTask() -> TaskRowViewModel {
-        return TaskRowViewModel(task: Task(id: "", title: "", isCompleted: false, dueDate: nil, priority: .medium))
+        return TaskRowViewModel(task: Task(title: "", isCompleted: false, dueDate: nil, priority: .medium))
     }
     
     init(task: Task) {

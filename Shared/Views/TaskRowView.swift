@@ -10,6 +10,8 @@ import SwiftUI
 struct TaskRowView: View {
     @ObservedObject var taskRowViewModel: TaskRowViewModel
     var onCommit: (Result<Task, InputError>) -> Void = { _ in }
+    @State var isEditing = false
+
     
     var body: some View {
         HStack {
@@ -18,15 +20,22 @@ struct TaskRowView: View {
                 .frame(width: 20, height: 20)
                 .onTapGesture {
                     self.taskRowViewModel.task.isCompleted.toggle()
+                    
+                    if !isEditing {
+                        self.onCommit(.success(self.taskRowViewModel.task))
+                    }
                 }
             
-            TextField("Enter task title", text: $taskRowViewModel.task.title, onCommit: {
+            TextField("Enter task title", text: $taskRowViewModel.task.title) { isEditing in
+                self.isEditing = isEditing
+            }
+            onCommit: {
                 if self.taskRowViewModel.task.title.isEmpty {
                     self.onCommit(.failure(.empty))
                 } else {
                     self.onCommit(.success(self.taskRowViewModel.task))
                 }
-            })
+            }
         }
     }
 }

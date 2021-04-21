@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		704BE13E262DDE2D00875586 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 704BE13D262DDE2D00875586 /* Resolver */; };
+		704BE144262DDF6800875586 /* TodoApp+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704BE143262DDF6800875586 /* TodoApp+Injection.swift */; };
+		704BE145262DDF6800875586 /* TodoApp+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704BE143262DDF6800875586 /* TodoApp+Injection.swift */; };
+		704BE14F262DEFF600875586 /* Disk in Frameworks */ = {isa = PBXBuildFile; productRef = 704BE14E262DEFF600875586 /* Disk */; };
 		70B41B7E262DD84F00B2E904 /* TaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B41B7D262DD84F00B2E904 /* TaskRepository.swift */; };
 		70B41B7F262DD84F00B2E904 /* TaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B41B7D262DD84F00B2E904 /* TaskRepository.swift */; };
 		A2D169F326090E64004BFD41 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D169F226090E64004BFD41 /* Tests_iOS.swift */; };
@@ -47,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		704BE143262DDF6800875586 /* TodoApp+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoApp+Injection.swift"; sourceTree = "<group>"; };
 		70B41B7D262DD84F00B2E904 /* TaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepository.swift; sourceTree = "<group>"; };
 		A2D169D726090E62004BFD41 /* TodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoApp.swift; sourceTree = "<group>"; };
 		A2D169D826090E62004BFD41 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
@@ -74,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				704BE13E262DDE2D00875586 /* Resolver in Frameworks */,
+				704BE14F262DEFF600875586 /* Disk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +153,7 @@
 				70B41B85262DD85C00B2E904 /* Views */,
 				70B41B84262DD85300B2E904 /* Repositories */,
 				A2D169D726090E62004BFD41 /* TodoApp.swift */,
+				704BE143262DDF6800875586 /* TodoApp+Injection.swift */,
 				A2D16A5526093440004BFD41 /* TodoDataProvidable.swift */,
 				A2D169D926090E64004BFD41 /* Assets.xcassets */,
 				A2D16A1926090FF0004BFD41 /* Task.swift */,
@@ -215,6 +223,10 @@
 			dependencies = (
 			);
 			name = "Todo (iOS)";
+			packageProductDependencies = (
+				704BE13D262DDE2D00875586 /* Resolver */,
+				704BE14E262DEFF600875586 /* Disk */,
+			);
 			productName = "Todo (iOS)";
 			productReference = A2D169DE26090E64004BFD41 /* Todo.app */;
 			productType = "com.apple.product-type.application";
@@ -306,6 +318,10 @@
 				Base,
 			);
 			mainGroup = A2D169D126090E62004BFD41;
+			packageReferences = (
+				704BE13C262DDE2D00875586 /* XCRemoteSwiftPackageReference "Resolver" */,
+				704BE14D262DEFF600875586 /* XCRemoteSwiftPackageReference "Disk" */,
+			);
 			productRefGroup = A2D169DF26090E64004BFD41 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -362,6 +378,7 @@
 				A2D16A0226090E64004BFD41 /* TaskListView.swift in Sources */,
 				A2D16A5626093440004BFD41 /* TodoDataProvidable.swift in Sources */,
 				A2D16A1A26090FF0004BFD41 /* Task.swift in Sources */,
+				704BE144262DDF6800875586 /* TodoApp+Injection.swift in Sources */,
 				A2D16A0026090E64004BFD41 /* TodoApp.swift in Sources */,
 				A2D16A3C26092C4C004BFD41 /* TaskRowView.swift in Sources */,
 			);
@@ -377,6 +394,7 @@
 				A2D16A0326090E64004BFD41 /* TaskListView.swift in Sources */,
 				A2D16A5726093440004BFD41 /* TodoDataProvidable.swift in Sources */,
 				A2D16A1B26090FF0004BFD41 /* Task.swift in Sources */,
+				704BE145262DDF6800875586 /* TodoApp+Injection.swift in Sources */,
 				A2D16A0126090E64004BFD41 /* TodoApp.swift in Sources */,
 				A2D16A3D26092C4C004BFD41 /* TaskRowView.swift in Sources */,
 			);
@@ -746,6 +764,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		704BE13C262DDE2D00875586 /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
+		704BE14D262DEFF600875586 /* XCRemoteSwiftPackageReference "Disk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/saoudrizwan/Disk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		704BE13D262DDE2D00875586 /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704BE13C262DDE2D00875586 /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+		704BE14E262DEFF600875586 /* Disk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704BE14D262DEFF600875586 /* XCRemoteSwiftPackageReference "Disk" */;
+			productName = Disk;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A2D169D226090E62004BFD41 /* Project object */;
 }

@@ -10,7 +10,7 @@ import Combine
 import Resolver
 
 class TaskListViewModel: ObservableObject {
-    @Published var taskRepository: TaskRepository = Resolver.resolve()
+    @Injected var taskRepository: TaskRepository
     @Published var taskRowViewModels = [TaskRowViewModel]()
 
     private var cancellables = Set<AnyCancellable>()

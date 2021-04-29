@@ -10,6 +10,7 @@ import Resolver
 
 extension Resolver: ResolverRegistering {
     public static func registerAllServices() {
-        register { LocalTaskRepository() as TaskRepository }.scope(.application)
+        register { AuthenticationService() }.scope(.application)
+        register { FirestoreTaskRepository() as TaskRepository }.scope(.application)
     }
 }

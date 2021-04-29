@@ -29,7 +29,7 @@ class TaskRowViewModel: ObservableObject, Identifiable {
             .store(in: &cancellable)
         
         $task
-            .map { $0.id }
+            .map { $0.id ?? "" }
             .assign(to: \.id, on: self)
             .store(in: &cancellable)
     }

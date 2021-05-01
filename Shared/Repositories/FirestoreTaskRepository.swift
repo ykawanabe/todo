@@ -28,24 +28,34 @@ class FirestoreTaskRepository: BaseTaskRepository, TaskRepository, ObservableObj
             .assign(to: \.userId, on: self)
             .store(in: &cancellables)
         
+        authenticationService.$user
+            .receive(on: DispatchQueue.main)
+            .sink { user in
+                self.loadData()
+            }
+            .store(in: &cancellables)
         
         loadData()
     }
     
     private func loadData() {
-        db.collection(tasksCollectionName).order(by: "createdTime").addSnapshotListener { (querySnapshot, error) in
-            if let querySnapshot = querySnapshot {
-                self.tasks = querySnapshot.documents.compactMap { document -> Task? in
-                    try? document.data(as: Task.self)
+        db.collection(tasksCollectionName)
+            .whereField("userId", isEqualTo: userId)
+            .order(by: "createdTime")
+            .addSnapshotListener { (querySnapshot, error) in
+                if let querySnapshot = querySnapshot {
+                    self.tasks = querySnapshot.documents.compactMap { document -> Task? in
+                        try? document.data(as: Task.self)
+                    }
                 }
             }
-            
-        }
     }
     
     func addTask(_ task: Task) {
         do {
-            let _ = try db.collection(tasksCollectionName).addDocument(from: task)
+            var userTask = task
+            userTask.userId = userId
+            let _ = try db.collection(tasksCollectionName).addDocument(from: userTask)
         }
         catch {
             print("There was an error while trying to save a task \(error.localizedDescription).")
